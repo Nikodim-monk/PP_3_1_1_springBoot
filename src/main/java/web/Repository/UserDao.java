@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import web.model.User;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class UserDao {
@@ -15,20 +16,22 @@ public class UserDao {
         return userService.findAll();
     }
 
-
-    public User getUserById(int id) {
-        return userService.findById((long) id).orElse(null);
-    }
-
     public void addNewUser(User user) {
         userService.save(user);
     }
-//
-//    public void updateUser(User user, int id) {
-//       userDao.
-//    }
-//
-    public void UserDelete(int id) {
-       userService.deleteById((long) id);
+
+    public User getUserById(long id) {
+        return userService.findById(id).orElse(null);
+    }
+
+
+
+    public void updateUser(User user, long id) {
+       User userNotUpdate=getUserById(id);
+
+    }
+
+    public void UserDelete(long id) {
+       userService.deleteById(id);
     }
 }
