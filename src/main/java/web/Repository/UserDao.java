@@ -1,28 +1,27 @@
-package web.Service;
+package web.Repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import web.Repositiry.UserRepository;
+import org.springframework.stereotype.Component;
 import web.model.User;
 
 import java.util.List;
 
-@Service
-public class UserService {
+@Component
+public class UserDao {
     @Autowired
-    private UserRepository userDao;
+    private UserService userService;
 
     public List<User> getAllUsers() {
-        return userDao.findAll();
+        return userService.findAll();
     }
 
 
     public User getUserById(int id) {
-        return userDao.findById((long) id).orElse(null);
+        return userService.findById((long) id).orElse(null);
     }
 
     public void addNewUser(User user) {
-        userDao.save(user);
+        userService.save(user);
     }
 //
 //    public void updateUser(User user, int id) {
@@ -30,6 +29,6 @@ public class UserService {
 //    }
 //
     public void UserDelete(int id) {
-       userDao.deleteById((long) id);
+       userService.deleteById((long) id);
     }
 }

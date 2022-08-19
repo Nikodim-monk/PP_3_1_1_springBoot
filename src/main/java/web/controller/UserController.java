@@ -4,19 +4,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import web.Service.UserService;
-//import web.dao.UserDaoImpl;
+import web.Repository.UserDao;
+import web.model.User;
+
+import java.util.List;
 
 
 @Controller
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserDao userDao;
 
     @GetMapping("/")
     public String printAllUsers(ModelMap model) {
-        model.addAttribute("users", userService.getAllUsers());
+        List<User> aaa= userDao.getAllUsers();
+        model.addAttribute("users", userDao.getAllUsers());
         return "usersAll";
     }
 //
