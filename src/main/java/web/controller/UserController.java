@@ -11,7 +11,6 @@ import web.model.User;
 import javax.validation.Valid;
 import java.util.List;
 
-
 @Controller
 public class UserController {
 
@@ -20,7 +19,6 @@ public class UserController {
 
     @GetMapping("/")
     public String printAllUsers(ModelMap model) {
-        List<User> aaa= userDao.getAllUsers();
         model.addAttribute("users", userDao.getAllUsers());
         return "usersAll";
     }
@@ -38,15 +36,14 @@ public class UserController {
         return "redirect:/";
     }
 
-    @PatchMapping("/{id}")
-    public String updateUser(@ModelAttribute("user") @Valid User user, BindingResult bindingResult,
-                             @PathVariable("id") long id) {
+    @PostMapping("/update")
+    public String updateUser(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
         if(bindingResult.hasErrors()){return "redirect:/{id}";}
-        userDao.updateUser(user, id);
+        userDao.updateUser(user);
         return "redirect:/";
     }
 
-    @DeleteMapping("/{id}")
+    @PostMapping("/{id}")
     public String deleteUser(@PathVariable("id") long id) {
         userDao.UserDelete(id);
         return "redirect:/";

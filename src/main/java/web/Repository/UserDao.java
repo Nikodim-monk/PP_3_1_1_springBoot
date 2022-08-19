@@ -24,11 +24,11 @@ public class UserDao {
         return userService.findById(id).orElse(null);
     }
 
-
-
-    public void updateUser(User user, long id) {
-       User userNotUpdate=getUserById(id);
-
+    public void updateUser(User user) {
+        long aa=user.getId();
+       User userNotUpdate=getUserById(aa);
+        userNotUpdate.setName(user.getName());
+        userNotUpdate.setAge(user.getAge());
     }
 
     public void UserDelete(long id) {
