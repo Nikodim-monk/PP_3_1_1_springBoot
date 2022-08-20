@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import web.model.User;
 
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class UserDao {
@@ -25,13 +24,10 @@ public class UserDao {
     }
 
     public void updateUser(User user) {
-        long aa=user.getId();
-       User userNotUpdate=getUserById(aa);
-        userNotUpdate.setName(user.getName());
-        userNotUpdate.setAge(user.getAge());
+        userService.saveAndFlush(user);
     }
 
     public void UserDelete(long id) {
-       userService.deleteById(id);
+        userService.deleteById(id);
     }
 }
