@@ -2,15 +2,15 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/pages" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pages" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/web/App/Dao/DAO/UserDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/web/App/model/Car.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/web/Repository/UserService.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/web/controller/HelloController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/web/controller/HelloController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/web/controller/UserController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/web/model/User.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/web/repository/JpaRepo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/web/util/Util.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/web/webapp" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/web/webapp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/db.properties" charset="UTF-8" />
   </component>
 </project>

@@ -1,33 +1,35 @@
-package web.Repository;
+package web.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import web.model.User;
+import web.service.UserService;
 
 import java.util.List;
 
-@Component
-public class UserDao {
+@Repository
+public class UserRepository implements UserService {
     @Autowired
-    private UserService userService;
+    private JpaRepo jpaRepo;
 
     public List<User> getAllUsers() {
-        return userService.findAll();
+        return jpaRepo.findAll();
     }
 
     public void addNewUser(User user) {
-        userService.save(user);
+        jpaRepo.save(user);
     }
 
     public User getUserById(long id) {
-        return userService.findById(id).orElse(null);
+        return jpaRepo.findById(id).orElse(null);
     }
 
     public void updateUser(User user) {
-        userService.saveAndFlush(user);
+        jpaRepo.saveAndFlush(user);
     }
 
     public void UserDelete(long id) {
-        userService.deleteById(id);
+        jpaRepo.deleteById(id);
     }
 }
