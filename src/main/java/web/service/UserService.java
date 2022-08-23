@@ -1,34 +1,15 @@
 package web.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import web.model.User;
-import web.repository.UserRepository;
-
 import java.util.List;
 
-@Service
-public class UserService{
-    @Autowired
-    private UserRepository userRepository;
+public interface UserService {
+    List<User> getAllUsers();
+    void addNewUser(User user);
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
+    User getUserById(long id);
 
-    public void addNewUser(User user) {
-        userRepository.save(user);
-    }
+    void updateUser(User user);
 
-    public User getUserById(long id) {
-        return userRepository.findById(id).orElse(null);
-    }
-
-    public void updateUser(User user) {
-        userRepository.saveAndFlush(user);
-    }
-
-    public void UserDelete(long id) {
-        userRepository.deleteById(id);
-    }
+    void UserDelete(long id);
 }
