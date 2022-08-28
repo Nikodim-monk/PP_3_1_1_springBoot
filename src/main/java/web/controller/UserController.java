@@ -22,7 +22,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public String printUserById(ModelMap model, @PathVariable("id") long id) {
-        model.addAttribute("user", service.getUserById(id));
+        model.addAttribute("user", service.getUser(id));
         return "user";
     }
 
@@ -32,13 +32,13 @@ public class UserController {
         return "redirect:/";
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public String updateUser(@ModelAttribute("user") User user) {
         service.updateUser(user);
         return "redirect:/";
     }
 
-    @PostMapping("/{id}")
+    @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable("id") long id) {
         service.UserDelete(id);
         return "redirect:/";
