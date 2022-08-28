@@ -21,7 +21,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public String printUserById(ModelMap model, @PathVariable("id") long id) {
+    public String printUser(ModelMap model, @PathVariable("id") long id) {
         model.addAttribute("user", service.getUser(id));
         return "user";
     }
@@ -32,9 +32,12 @@ public class UserController {
         return "redirect:/";
     }
 
-    @PutMapping("/update")
-    public String updateUser(@ModelAttribute("user") User user) {
-        service.updateUser(user);
+    @PutMapping("/{id}")
+    public String updateUser(@ModelAttribute("user") User user, @PathVariable("id") long id) {
+        User userNotUpdate=service.getUser(id);
+        userNotUpdate.setName(user.getName());
+        userNotUpdate.setAge(user.getAge());
+        service.updateUser(userNotUpdate);
         return "redirect:/";
     }
 

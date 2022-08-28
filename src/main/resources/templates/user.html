@@ -5,13 +5,12 @@
     <title>User</title>
 </head>
 <body>
-<form th:method="PUT" th:action="@{/update}" th:object="${user}">
+<form th:method="PUT" th:action="@{{id}(id=${user.getId()})}" th:object="${user}">
         <label for="name">Новое имя:</label>
         <input type="text" th:field="*{name}" id="name">
         <br/>
         <label for="age">Возраст:</label>
         <input type="text" th:field="*{age}" id="age">
-        <input type="hidden" th:field="*{id}" id="id">
         <br/>
         <input type="submit" value="Обновить"/>
     </form>
