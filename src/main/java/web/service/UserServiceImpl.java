@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService{
         userRepository.saveAndFlush(user);
     }
 
-    public void UserDelete(long id) {
+    public void userDelete(long id) {
         userRepository.deleteById(id);
     }
 }
